@@ -1,15 +1,13 @@
 class Solution {
-    public boolean searchMatrix(int[][] mat, int X) {
-        boolean DTD = false;
-        int N=mat.length;
-        int M=mat[0].length;
-	   for(int i=0;i<N;++i){
-	       for(int j=0;j<M;++j){
-	           if(mat[i][j]==X){
-	               DTD=true;
-	           }
-	       }
-	   }
-	   return DTD;
+    public boolean searchMatrix(int[][] matrix, int target) {
+        boolean found = false;
+        for(int row=0; row < matrix.length; row++){
+            for(int col=0;  col<matrix[0].length; col++){
+                if(matrix[row][col]==target){
+                    found = true;
+                }
+            }
+        }
+        return found;
     }
 }
