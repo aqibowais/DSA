@@ -1,12 +1,13 @@
 class Solution {
     public int climbStairs(int n) {
-        if(n==0 || n==1) return 1;
-        int prev = 1,curr = 1;
-        for(int i=2; i<=n;i++){
-            int temp = curr;
-            curr = temp + prev;
-            prev = temp;
+        if(n<3) return n;
+        Stack<Integer> stairs = new Stack<>();
+        stairs.push(1);
+        int curr = 2;
+        while(n>2){
+            curr = stairs.peek() + stairs.push(curr);
+            n--;
         }
-        return curr;
+    return curr;
     }
 }
