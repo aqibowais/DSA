@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    private List<TreeNode> sortedArray = new ArrayList<>();
+   private List<TreeNode> sortedArray = new ArrayList<>();
     public TreeNode balanceBST(TreeNode root) {
         inorderTraversal(root);
         return buildTree(0,sortedArray.size()-1);
