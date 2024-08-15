@@ -8,8 +8,8 @@ public:
     bool isPalindrome(int x) {
         // Recursive approach
         if(x<0) return false;
-        int original = x;
-        return recursive(x,0) == original;
+        
+        return recursive(x,0) == x;
 
         // long long result = 0;
         // long original = x;
