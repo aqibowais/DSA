@@ -9,17 +9,34 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        unordered_map<ListNode*, int> mpp;
-        ListNode* temp = headA;
-        while(temp){
-            mpp[temp] = 1;
-            temp = temp->next;
+        //using Hashing
+        // unordered_map<ListNode*, int> mpp;
+        // ListNode* temp = headA;
+        // while(temp){
+        //     mpp[temp] = 1;
+        //     temp = temp->next;
+        // }
+        // temp = headB;
+        // while(temp){
+        //     if(mpp.find(temp)!=mpp.end()) return temp;
+        //     temp = temp->next;
+        // }
+        // return NULL;
+
+        //optimal approach with out using extra space
+        if(!headA || !headB) return NULL;
+        ListNode* temp1 = headA;
+        ListNode* temp2 = headB;
+        while(temp1 != temp2){
+            temp1 = temp1->next;
+            temp2 = temp2->next;
+
+            if(temp1 == temp2) return temp1;
+
+            if(temp1 == NULL) temp1 = headB;
+            if(temp2 == NULL) temp2 = headA;
+
         }
-        temp = headB;
-        while(temp){
-            if(mpp.find(temp)!=mpp.end()) return temp;
-            temp = temp->next;
-        }
-        return NULL;
+        return temp1;
     }
 };
