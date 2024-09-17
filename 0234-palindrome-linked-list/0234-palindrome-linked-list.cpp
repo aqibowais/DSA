@@ -19,6 +19,10 @@ public:
         return newHead;
     }
     bool isPalindrome(ListNode* head) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
+        
         if(head==NULL || head->next==NULL) return true;
         ListNode* slow = head;
         ListNode* fast = head;
