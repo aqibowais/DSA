@@ -2,26 +2,24 @@ class Solution {
 public:
     vector<int> resultsArray(vector<int>& nums, int k) {
         int n = nums.size();
-        int i = 1;
-        int j = k ;
-        if(n==1)return nums;
         vector<int> result(n-k+1,-1);
-       for (int i = 0; i < n - k; ++i)
-    {
-        bool isSorted = true;
-        for (int j = i; j < i + k - 1; ++j)
-        {
-            if (nums[j] > nums[j + 1])
-            {
-                isSorted = false;
-                break;
-            }
+        int count =1;
+        for(int i=1;i<k;i++){
+            if(nums[i]==nums[i-1]+1) count++;
+            else count = 1;
         }
-        if (isSorted && nums[i+1]-nums[i]==1)
-        {
-            result[i] = *max_element(nums.begin() + i, nums.begin() + i + k);
+        if(count==k) result[0] = nums[k-1];
+        int i = 1;
+        int j = k;
+        while(j<n){
+            if(nums[j]==nums[j-1]+1) count++;
+            else count = 1;
+            
+            if(count>=k) result[i] = nums[j];
+            i++;
+            j++;
         }
-    }
+
         return result;
     }
 };
