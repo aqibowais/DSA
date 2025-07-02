@@ -5,6 +5,6 @@ class Solution:
         for s in strs:
             count = [0]*26
             for c in s:
-                count[ord(c)-ord('a')] += 1
-            res[tuple(count)].append(s) #converting count list to tuple as tuple are immutable and to access value from dic the key should be immutable
+                count[ord(c)-ord('a')]+=1
+            res[tuple(count)].append(s)
         return list(res.values())
